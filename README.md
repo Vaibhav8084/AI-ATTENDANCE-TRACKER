@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # SRM Academia & Google Classroom AI Biometric Portal
 
 > **An institutional academic management portal inspired by SRM Academia (`academia.srmist.edu.in`) and Google Classroom, unified with real-time AI rotating camera facial recognition attendance tracking in an executive luxury aesthetic (Obsidian Black, Charcoal, Espresso Brown, and Champagne Bronze).**
@@ -62,3 +63,6 @@ http://127.0.0.1:5000
 3. Create a new classroom or open an existing class stream to post an announcement with an image/link.
 4. Switch to **AI Rotating Camera Attendance**, select `Deep Learning (18CSC305J)`, and start the sweep!
 5. Rotate/pan your camera: students are recognized, and their attendance and bunk margin update in real time!
+=======
+# AI-ATTENDANCE-TRACKER
+>>>>>>> 3a900dbb44c36e3928cb20b7ee5510895951a68d
