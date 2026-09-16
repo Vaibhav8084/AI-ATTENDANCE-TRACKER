@@ -1,0 +1,1010 @@
+/* ==========================================================================
+   SRM ACADEMIA & GOOGLE CLASSROOM - LUXURY CLASSIC DESIGN SYSTEM
+   Palette: Deep Obsidian Black, Charcoal, Espresso Brown, Cognac & Champagne Bronze
+   ========================================================================== */
+
+:root {
+    --bg-main: #0c0c0e;
+    --bg-secondary: #131317;
+    --bg-card: rgba(22, 21, 26, 0.85);
+    --bg-card-hover: rgba(30, 28, 35, 0.95);
+    --border-subtle: rgba(197, 155, 109, 0.16);
+    --border-gold: rgba(197, 155, 109, 0.38);
+    --border-active: #c59b6d;
+    
+    /* Luxury Color Tokens */
+    --gold: #d4af37;
+    --bronze: #c59b6d;
+    --bronze-light: #e2c29d;
+    --espresso: #2a1f18;
+    --mocha: #3e2d23;
+    --mahogany: #583d2f;
+    --charcoal: #1c1c22;
+    --charcoal-light: #282830;
+    
+    /* Feedback Tokens */
+    --emerald-safe: #2ec4b6;
+    --crimson-alert: #d90429;
+    --amber-warn: #e0873a;
+    
+    /* Typography */
+    --text-primary: #fbfbfa;
+    --text-secondary: #b0b0b8;
+    --text-muted: #74747e;
+    --font-heading: 'Cinzel', 'Playfair Display', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-main);
+    background-image: 
+        radial-gradient(circle at 10% 10%, rgba(197, 155, 109, 0.04) 0%, transparent 45%),
+        radial-gradient(circle at 90% 90%, rgba(88, 61, 47, 0.05) 0%, transparent 45%),
+        linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    line-height: 1.5;
+}
+
+/* Subtle classic vignette */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at center, transparent 60%, rgba(0, 0, 0, 0.5) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.portal-wrapper {
+    position: relative;
+    z-index: 2;
+    max-width: 1680px;
+    margin: 0 auto;
+    padding: 16px 24px 36px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-height: 100vh;
+}
+
+/* ==========================================================================
+   CLASSIC LUXURY GLASS PANELS
+   ========================================================================== */
+.luxury-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    box-shadow: 0 12px 36px 0 rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    position: relative;
+    transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.luxury-card:hover {
+    border-color: var(--border-gold);
+}
+
+/* Elegant gold corner accents */
+.gold-corner::before, .gold-corner::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    pointer-events: none;
+}
+.gold-corner::before {
+    top: 0; left: 0;
+    border-top: 2px solid var(--bronze);
+    border-left: 2px solid var(--bronze);
+    border-top-left-radius: 4px;
+}
+.gold-corner::after {
+    bottom: 0; right: 0;
+    border-bottom: 2px solid var(--bronze);
+    border-right: 2px solid var(--bronze);
+    border-bottom-right-radius: 4px;
+}
+
+/* ==========================================================================
+   SRM ACADEMIA TOP HEADER & BRAND BAR
+   ========================================================================== */
+.academia-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 24px;
+    background: linear-gradient(180deg, rgba(30, 27, 34, 0.95) 0%, rgba(18, 17, 22, 0.9) 100%);
+    border-bottom: 1px solid var(--border-gold);
+}
+
+.srm-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.srm-crest {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--mocha), var(--espresso));
+    border: 1.5px solid var(--bronze);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+}
+
+.srm-crest svg {
+    width: 26px;
+    height: 26px;
+    fill: var(--bronze);
+}
+
+.srm-title-group h1 {
+    font-family: var(--font-heading);
+    font-size: 18px;
+    letter-spacing: 1.5px;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.srm-title-group .sub {
+    font-size: 11px;
+    color: var(--bronze);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+/* Header User Profile & Role Switcher */
+.header-profile-section {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.user-profile-badge {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(36, 32, 42, 0.6);
+    border: 1px solid var(--border-subtle);
+    padding: 6px 14px;
+    border-radius: 30px;
+}
+
+.user-avatar-mini {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1.5px solid var(--bronze);
+    background: var(--espresso);
+}
+
+.user-text-info {
+    text-align: left;
+}
+
+.user-name-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.2;
+}
+
+.user-role-label {
+    font-size: 10px;
+    color: var(--bronze);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Luxury Buttons */
+.luxury-btn {
+    background: linear-gradient(135deg, var(--mocha), var(--espresso));
+    border: 1px solid var(--bronze);
+    color: var(--bronze-light);
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+.luxury-btn:hover {
+    background: linear-gradient(135deg, var(--mahogany), var(--mocha));
+    color: #fff;
+    border-color: var(--gold);
+    box-shadow: 0 4px 18px rgba(197, 155, 109, 0.25);
+    transform: translateY(-1px);
+}
+
+.luxury-btn.btn-gold {
+    background: linear-gradient(135deg, #c59b6d, #9a7246);
+    color: #0c0c0e;
+    border-color: #e5c195;
+    font-weight: 800;
+}
+.luxury-btn.btn-gold:hover {
+    background: linear-gradient(135deg, #d4af37, #b8860b);
+    color: #000;
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.35);
+}
+
+.luxury-btn.btn-ghost {
+    background: transparent;
+    border: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+}
+.luxury-btn.btn-ghost:hover {
+    background: rgba(197, 155, 109, 0.08);
+    border-color: var(--bronze);
+    color: var(--text-primary);
+}
+
+/* ==========================================================================
+   NAVIGATION TABS BAR
+   ========================================================================== */
+.portal-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 18px;
+    background: rgba(18, 17, 22, 0.7);
+}
+
+.portal-nav-tabs {
+    display: flex;
+    gap: 6px;
+}
+
+.portal-tab-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+    letter-spacing: 0.3px;
+}
+
+.portal-tab-btn:hover {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.portal-tab-btn.active {
+    background: linear-gradient(135deg, rgba(197, 155, 109, 0.2), rgba(62, 45, 35, 0.3));
+    color: var(--bronze-light);
+    border: 1px solid var(--border-gold);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================================================================
+   SRM ACADEMIA HERO MARGIN BUNK CALCULATOR
+   ========================================================================== */
+.margin-hero-card {
+    padding: 24px 30px;
+    display: grid;
+    grid-template-columns: 1.8fr 1.2fr;
+    gap: 28px;
+    align-items: center;
+    background: linear-gradient(135deg, rgba(32, 28, 38, 0.9) 0%, rgba(20, 18, 24, 0.95) 100%);
+    border: 1px solid var(--border-gold);
+}
+
+.margin-title-area h2 {
+    font-family: var(--font-heading);
+    font-size: 22px;
+    color: var(--text-primary);
+    letter-spacing: 1px;
+}
+
+.margin-subtitle {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+.margin-stats-row {
+    display: flex;
+    gap: 20px;
+    margin-top: 18px;
+}
+
+.margin-stat-box {
+    background: rgba(14, 13, 17, 0.6);
+    border: 1px solid var(--border-subtle);
+    padding: 12px 18px;
+    border-radius: 8px;
+    flex: 1;
+}
+
+.margin-stat-box .lbl {
+    font-size: 10px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+}
+
+.margin-stat-box .val {
+    font-size: 20px;
+    font-weight: 800;
+    font-family: var(--font-mono);
+    color: var(--text-primary);
+    margin-top: 2px;
+}
+
+.margin-dial-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(14, 13, 17, 0.5);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+}
+
+.margin-hero-badge {
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    margin-top: 10px;
+    font-family: var(--font-mono);
+}
+
+.badge-safe {
+    background: rgba(46, 196, 182, 0.12);
+    border: 1px solid rgba(46, 196, 182, 0.4);
+    color: var(--emerald-safe);
+}
+
+.badge-deficit {
+    background: rgba(217, 4, 41, 0.12);
+    border: 1px solid rgba(217, 4, 41, 0.4);
+    color: var(--crimson-alert);
+}
+
+/* ==========================================================================
+   GOOGLE CLASSROOM STYLE CARDS & STREAM
+   ========================================================================== */
+.classrooms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+}
+
+.classroom-card {
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+}
+
+.classroom-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--bronze);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+}
+
+.classroom-banner {
+    padding: 20px 22px;
+    background: linear-gradient(135deg, var(--mocha) 0%, var(--espresso) 60%, #17120e 100%);
+    border-bottom: 1px solid var(--border-gold);
+    position: relative;
+}
+
+.class-card-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.3;
+}
+
+.class-card-code {
+    font-size: 12px;
+    color: var(--bronze);
+    font-weight: 600;
+    margin-top: 2px;
+    font-family: var(--font-mono);
+}
+
+.class-card-teacher {
+    font-size: 11px;
+    color: var(--text-secondary);
+    margin-top: 10px;
+}
+
+.class-code-tag {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--bronze);
+    color: var(--bronze-light);
+    font-size: 11px;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-family: var(--font-mono);
+}
+
+.classroom-card-body {
+    padding: 16px 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+/* Classroom Stream View */
+.stream-container {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 20px;
+}
+
+.stream-class-hero {
+    grid-column: 1 / -1;
+    padding: 30px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--mahogany) 0%, var(--espresso) 70%, #120e0b 100%);
+    border: 1px solid var(--border-gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.stream-hero-title {
+    font-family: var(--font-heading);
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.stream-hero-meta {
+    font-size: 14px;
+    color: var(--bronze-light);
+    margin-top: 6px;
+}
+
+/* Post Composer */
+.post-composer-card {
+    padding: 18px 22px;
+    margin-bottom: 20px;
+    background: rgba(22, 20, 26, 0.9);
+}
+
+.post-composer-textarea {
+    width: 100%;
+    background: rgba(14, 13, 17, 0.7);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    padding: 12px 16px;
+    color: var(--text-primary);
+    font-size: 14px;
+    resize: vertical;
+    outline: none;
+    min-height: 80px;
+}
+.post-composer-textarea:focus {
+    border-color: var(--bronze);
+}
+
+/* Stream Posts */
+.stream-post-card {
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.stream-post-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.post-author-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1.5px solid var(--bronze);
+    background: var(--espresso);
+}
+
+.post-author-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.post-timestamp {
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+.stream-post-content {
+    font-size: 14px;
+    color: #e2e2e6;
+    line-height: 1.6;
+    white-space: pre-wrap;
+}
+
+.post-media-attachment {
+    border-radius: 8px;
+    overflow: hidden;
+    max-height: 380px;
+    margin-top: 10px;
+    border: 1px solid var(--border-subtle);
+}
+
+.post-media-attachment img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ==========================================================================
+   ACADEMIA TIMETABLE GRID (DAY ORDER 1-5)
+   ========================================================================== */
+.timetable-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.timetable-table th {
+    background: rgba(30, 27, 34, 0.85);
+    color: var(--bronze);
+    padding: 12px 14px;
+    text-align: center;
+    font-family: var(--font-heading);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid var(--border-gold);
+}
+
+.timetable-table td {
+    padding: 14px 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: center;
+}
+
+.timetable-cell-box {
+    background: rgba(30, 27, 35, 0.6);
+    border: 1px solid var(--border-subtle);
+    padding: 8px 10px;
+    border-radius: 6px;
+    text-align: left;
+}
+
+.cell-code {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--bronze);
+    font-family: var(--font-mono);
+}
+
+.cell-name {
+    font-size: 12px;
+    font-weight: 600;
+    color: #fff;
+    margin-top: 2px;
+}
+
+.cell-room {
+    font-size: 10px;
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+/* ==========================================================================
+   AI ROTATING CAMERA LENS (CHAMPAGNE GOLD & JADE)
+   ========================================================================== */
+.luxury-camera-viewport {
+    position: relative;
+    width: 100%;
+    height: 540px;
+    background: #060608;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border-gold);
+}
+
+#liveVideo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scaleX(-1);
+}
+
+#videoCanvas {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+}
+
+.luxury-corner-tl, .luxury-corner-tr, .luxury-corner-bl, .luxury-corner-br {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    pointer-events: none;
+    z-index: 5;
+}
+.luxury-corner-tl { top: 16px; left: 16px; border-top: 2px solid var(--gold); border-left: 2px solid var(--gold); }
+.luxury-corner-tr { top: 16px; right: 16px; border-top: 2px solid var(--gold); border-right: 2px solid var(--gold); }
+.luxury-corner-bl { bottom: 16px; left: 16px; border-bottom: 2px solid var(--gold); border-left: 2px solid var(--gold); }
+.luxury-corner-br { bottom: 16px; right: 16px; border-bottom: 2px solid var(--gold); border-right: 2px solid var(--gold); }
+
+/* ==========================================================================
+   SRM ACADEMIA AUTHENTICATION VIEW
+   ========================================================================== */
+.login-view-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 460px;
+    padding: 36px 32px;
+    background: linear-gradient(180deg, rgba(26, 24, 30, 0.95) 0%, rgba(16, 15, 18, 0.98) 100%);
+    border: 1px solid var(--border-gold);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+}
+
+.login-header-area {
+    text-align: center;
+    margin-bottom: 26px;
+}
+
+.login-crest-icon {
+    width: 58px;
+    height: 58px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--mocha), var(--espresso));
+    border: 2px solid var(--bronze);
+    margin: 0 auto 14px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-crest-icon svg {
+    width: 34px;
+    height: 34px;
+    fill: var(--bronze);
+}
+
+.login-role-tabs {
+    display: flex;
+    gap: 8px;
+    background: rgba(14, 13, 17, 0.7);
+    padding: 4px;
+    border-radius: 8px;
+    margin-bottom: 22px;
+    border: 1px solid var(--border-subtle);
+}
+
+.login-role-btn {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    padding: 9px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.login-role-btn.active {
+    background: linear-gradient(135deg, var(--mocha), var(--espresso));
+    color: var(--bronze-light);
+    border: 1px solid var(--border-gold);
+}
+
+.form-group-lux {
+    margin-bottom: 18px;
+}
+
+.form-group-lux label {
+    display: block;
+    font-size: 11px;
+    color: var(--bronze);
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    margin-bottom: 6px;
+}
+
+.form-input-lux {
+    width: 100%;
+    background: rgba(12, 11, 15, 0.85);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-primary);
+    padding: 11px 14px;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+.form-input-lux:focus {
+    border-color: var(--bronze);
+    box-shadow: 0 0 12px rgba(197, 155, 109, 0.2);
+}
+
+/* Quick Demo Login Pills */
+.demo-logins-row {
+    margin-top: 22px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    text-align: center;
+}
+
+.demo-btn-pill {
+    background: rgba(197, 155, 109, 0.08);
+    border: 1px solid var(--border-subtle);
+    color: var(--bronze-light);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 4px;
+    display: inline-block;
+    transition: all 0.2s;
+}
+.demo-btn-pill:hover {
+    background: var(--bronze);
+    color: #000;
+}
+
+/* ==========================================================================
+   SRMIST LIVE GATEWAY STATUS & CAPTCHA STYLES
+   ========================================================================== */
+.srm-gateway-status-bar {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background: rgba(18, 16, 22, 0.95);
+    border: 1px solid var(--border-subtle);
+    border-radius: 10px;
+    padding: 10px 18px;
+    margin-bottom: 20px;
+    font-size: 12px;
+    flex-wrap: wrap;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.gateway-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.dot-live {
+    background: var(--emerald-safe);
+    box-shadow: 0 0 8px var(--emerald-safe);
+}
+
+.dot-offline {
+    background: #ef4444;
+    box-shadow: 0 0 8px #ef4444;
+}
+
+.dot-checking {
+    background: var(--bronze);
+    animation: pulseGlow 1.5s infinite;
+}
+
+.gateway-label {
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.gateway-state {
+    color: var(--bronze-light);
+    font-weight: 700;
+    font-family: var(--font-mono);
+    font-size: 11px;
+}
+
+.gateway-btn {
+    background: rgba(197, 155, 109, 0.12);
+    border: 1px solid var(--border-gold);
+    color: var(--bronze-light);
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+.gateway-btn:hover {
+    background: var(--bronze);
+    color: #0c0b0f;
+}
+
+/* eVarsity Captcha Box */
+.captcha-container-lux {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.captcha-img-box {
+    background: #141318;
+    border: 1px solid var(--border-gold);
+    border-radius: 6px;
+    padding: 3px;
+    min-width: 135px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.captcha-img-box img {
+    height: 36px;
+    max-width: 128px;
+    object-fit: contain;
+}
+
+/* ==========================================================================
+   OFFICIAL SRM STAFF FINDER DIRECTORY MODAL
+   ========================================================================== */
+.staff-finder-modal-card {
+    max-width: 860px;
+    max-height: 88vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.staff-search-input-wrap {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.staff-results-scroll {
+    overflow-y: auto;
+    max-height: 60vh;
+    padding-right: 6px;
+}
+
+.staff-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 14px;
+}
+
+.staff-card-lux {
+    background: rgba(22, 20, 27, 0.75);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+.staff-card-lux:hover {
+    border-color: var(--border-gold);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.staff-avatar-circle {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    border: 2px solid var(--bronze);
+    object-fit: cover;
+    margin-bottom: 10px;
+    background: var(--espresso);
+}
+
+.staff-name-lux {
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.3;
+}
+
+.staff-designation-lux {
+    font-size: 11px;
+    color: var(--bronze);
+    font-weight: 600;
+    margin-top: 4px;
+}
+
+.staff-dept-lux {
+    font-size: 10px;
+    color: var(--text-muted);
+    margin-top: 4px;
+    line-height: 1.3;
+}
+
+.staff-profile-link-btn {
+    margin-top: 10px;
+    font-size: 10px;
+    color: var(--bronze-light);
+    text-decoration: none;
+    border: 1px solid rgba(197, 155, 109, 0.3);
+    padding: 4px 10px;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+.staff-profile-link-btn:hover {
+    background: var(--bronze);
+    color: #000;
+}
+
